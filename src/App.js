@@ -4,6 +4,8 @@ import { StrictMode, useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Details from "./Details";
 import ThemeContext from "./ThemeContext";
+import StateComponent from "./State";
+
 
 const App = () => {
   const theme = useState("darkblue");
@@ -11,6 +13,7 @@ const App = () => {
     <StrictMode>
       <ThemeContext.Provider value={theme}>
         <BrowserRouter>
+        <StateComponent />
           <header>
             <Link to="/">Adopt Me!</Link>
           </header>
