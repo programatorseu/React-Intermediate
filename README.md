@@ -35,3 +35,25 @@ style={{ color: isGreen ? "limegreen" : "red"}}
 -> advance clock through timer every second 
 
 -> [pass dependency as param -- when time changes then react will update it]
+
+```js
+setTimeout - passes number id 
+```
+
+`clearTimeout` to clear out our component 
+
+for example we connect jquery to react insie useState and then in the end we use return to clean up connection 
+
+
+
+React is smart to re render only clock component
+
+### 1.3 useContext
+
+in react data flows in specifc way
+
+if we have something 4 level deep -> we will need to pass (Parent-child )
+
+od 3 minuty
+
+https://frontendmasters.com/courses/intermediate-react-v4/usecontext/
