@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Details from "./Details";
 import ThemeContext from "./ThemeContext";
 import StateComponent from "./State";
+import EffectComponent from "./Effect";
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <ThemeContext.Provider value={theme}>
         <BrowserRouter>
         <StateComponent />
+        <EffectComponent />
           <header>
             <Link to="/">Adopt Me!</Link>
           </header>
