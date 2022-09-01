@@ -381,3 +381,73 @@ will render sth while still loading
 
 
 
+### 3.2 Server Side Rendering
+
+run React on your Node.js server
+
+​	=>  *before* you serve the request to the user and send down the first rendering of your website already done. 
+
+= >In this case, they'll just download the HTML and see the first rendered page while React is loading in the background.
+
+spit packages across ---> load things in smaller packets upfronts 
+
+when render in node env - we can not access DOM 
+
+- we can not call Document in node  - it will crash 
+
+`ClientApp.js` -> what would happen in browser not server 
+
+- google analytics
+
+-  render from React dom
+- export App  to Client
+- take `BrowserRouter` from App
+
+
+
+problem with render -> it tells react to start from this point 
+
+we want to tell React we have html template -> use it  `hydrate`
+
+change in index.html ->  `ClientApp.js`
+
+
+
+**steps**
+
+1. install express
+
+2. node does not speak jsx and module -> we need sth to transpile - `parcel` so create script in package json : 
+
+```json
+   "buid": "parcel build",
+    "start": "npm -s run build && node dist/backend/index.js" 
+```
+
+
+
+3. add targets : - frontend  & backend ( local dev - so optimize to false - not minify -better error messaging, context - build from node , pass engine )
+
+4 create node sever  - server/index.js
+
+	- import express
+	- import necessary modules to that file
+
+- take port from provider or setup own 
+
+- use `readFileSync` to read from generate html file (with all correct paths )
+  - that method will pause invocation of rest of the code till is done
+- parts  `split` -> take delimeter from html `parts[0]` before delimeter `parts[1]` after delimeter
+- app = express and setup new server 
+- `app.use(public url, express.static("url"))` second part will set up properly all necessary assets 
+
+`app.use(req, resp)`  
+
+-> inside we pass requested url into StaticRouter that will run on server-side 
+
+=> Rener App there with 2 parts 
+
+```js
+ res.send(`${parts[0]}${renderToString(reactMarkup)}${parts[1]}`);
+```
+
