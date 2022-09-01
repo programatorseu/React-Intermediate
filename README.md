@@ -335,3 +335,49 @@ nice feature with disabled:
     className="w-60 mb-5 block disabled:opacity-50"
 ```
 
+
+
+
+
+## 3. Code Spliting - Server Rendering
+
+### 3.1 Code Splitting 
+
+Very big application  with js files weighting around few mbs 
+
+- send most important code at the beginning - start loading
+- in the bg  load rest
+  - or do not load till user hit page that loads necessary files  
+
+split at least hundreds of kilos - other way we slow down our app 
+
+
+
+App.js : 
+
+- import lazy & Suspense from react 
+
+- we are going to code split Details and Search imports 
+
+
+
+- declare Details -> call function `lazy` --- import component - **dynamic importing**
+
+
+
+> we have static import (in the top of code) - fully supplied string --- parse in build time 
+>
+> dynamic import - `import` give us Promise to resolve that module 
+
+Lazy return `LazyExoticComponent`
+
+ 
+
+we want to try load Detail page and it is not loaded yet 
+
+-- **Suspense**
+
+will render sth while still loading 
+
+
+
