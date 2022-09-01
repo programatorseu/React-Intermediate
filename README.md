@@ -175,3 +175,54 @@ in case of increment_r we are going :
 ```
 
 - return new state - empty object  -- we signify React that we want to update by creating new object 
+
+
+
+### 1.6 useMemo
+
+- performance optimization
+
+here is excessive recursion 
+
+without memo - react will recalculate fibonacci every single render
+
+- calculate it and keep it  / recalculate only if number changes 
+
+- do not run function if event was not triggered
+
+```js
+const fibonacci = (n) => {
+  if (n <= 1) {
+    return 1;
+  }
+
+  return fibonacci(n - 1) + fibonacci(n - 2);
+};
+const MemoComponent = () => {
+  const [num, setNum] = useState(1);
+  const [isGreen, setIsGreen] = useState(true);
+  const fib = useMemo(() => fibonacci(num), [num]);
+```
+
+### 1.7 useLayoutEffect
+
+effect is schedule later 
+
+- we do not have guarantee when - it is synchronous and we are not sure 
+
+- used for measuring DOM elements 
+
+```js
+import { useState, useLayoutEffect, useRef } from "react";
+
+const LayoutEffectComponent = () => {
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+  const el = useRef();
+
+  useLayoutEffect(() => {
+    setWidth(el.current.clientWidth);
+    setHeight(el.current.clientHeight);
+  });
+```
+
