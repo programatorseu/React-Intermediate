@@ -226,3 +226,18 @@ const LayoutEffectComponent = () => {
   });
 ```
 
+
+
+## 2. Tailwind CSS   
+
+### 2.1 Css & React
+
+```bash
+npm i -D tailwindcss@3.0.22 postcss@8.4.6 autoprefixer@10.4.2 # dev dependency -- saveDev
+```
+
+post-css - like babel for css 
+
+make tailwin documentation
+
+https://frontendmasters.com/courses/intermediate-react-v4/css-react/
