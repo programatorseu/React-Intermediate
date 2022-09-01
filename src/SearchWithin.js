@@ -25,14 +25,19 @@ const SearchWithin = () => {
     }
 
     return (
-        <div className="search-params">
-        <form onSubmit={(e) => {
+        <div className="my-0 mx-auto w-11/12">
+        <form 
+          className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center"
+        onSubmit={(e) => {
             e.preventDefault();
             requestPets();
         }}>
             <label htmlFor="location">
                 Location
-                <input id="location" value={location} placeholder="Location"
+                <input id="location" 
+                type="text"
+                className="w-60 mb-5 block"
+                value={location} placeholder="Location"
                 onChange={(e) => setLocation(e.target.value)}></input>
             </label>
             <label htmlFor="animal">
@@ -40,6 +45,7 @@ const SearchWithin = () => {
             <select
                 id="animal"
                 value={animal}
+                className="w-60 mb-5 block"
                 onChange={(e) => {
                 setAnimal(e.target.value);
                 setBreed("");
@@ -62,6 +68,7 @@ const SearchWithin = () => {
     disabled={!breeds.length}
     id="breed"
     value={breed}
+    className="w-60 mb-5 block disabled:opacity-50"
     onChange={(e) => setBreed(e.target.value)}
     onBlur={(e) => setBreed(e.target.value)}
   >
@@ -77,6 +84,7 @@ const SearchWithin = () => {
   Theme
   <select
     value={theme}
+    className="w-60 mb-5 block"
     onChange={(e) => setTheme(e.target.value)}
     onBlur={(e) => setTheme(e.target.value)}
   >
@@ -85,10 +93,12 @@ const SearchWithin = () => {
     <option value="chartreuse">Chartreuse</option>
     <option value="mediumorchid">Medium Orchid</option>
   </select>
-</label>;
+</label>
 
 
-<button style={{ backgroundColor: theme }}>Submit</button>;
+<button 
+  className="rounded px-6 py-2 text-white hover:opacity-50 border-none"
+style={{ backgroundColor: theme }}>Submit</button>
         </form>
         <Results pets ={pets}/>
     </div>

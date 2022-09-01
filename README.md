@@ -238,6 +238,100 @@ npm i -D tailwindcss@3.0.22 postcss@8.4.6 autoprefixer@10.4.2 # dev dependency -
 
 post-css - like babel for css 
 
-make tailwin documentation
+```
+npx tailwind init
+```
 
-https://frontendmasters.com/courses/intermediate-react-v4/css-react/
+jit - just in time - better perfomance
+
+content -> inside /src folder anything with html and js  
+
+style.css -> empty file and add 3 directives
+
+
+
+nuclear way of refershing - if needed of course: 
+
+```bash
+rm -rf .parcel-cache dist node_modules && npm i
+```
+
+
+
+### 2.2 Basics
+
+changes settings in vs code to ignore css lint :
+
+```bash
+  "css.lint.unknownAtRules": "ignore",
+```
+
+
+
+- atomic css classes 
+- do not need to write css 
+
+install TailwindCss intellinSens in vs code
+
+create file 
+
+`postcssrc`
+
+```js
+{
+    "plugins": {
+        "autoprefixer": {},
+        "tailwindcss": {}
+    }
+}
+```
+
+```css
+p-2 /*padding: 0.5 - each side */
+```
+
+### 2.3 Css Libraries
+
+now class names are quiet long for example : 
+
+```css
+<header className="w-full mb-10 text-center p-7 bg-gradient-to-b from-purple-400 via-pink-500 to-red-500">
+```
+
+tailwind has got a lot of premutations
+
+but tailwind with parcel and postcss ---> let you pass only what you need it 
+
+emotion library move css to javascript layer - where we can manipulate with that 
+
+### 2.4 Layout Basics 
+
+```css
+p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center
+```
+
+Grid: !! 
+
+```css
+  <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+```
+
+
+
+### 2.5 Plugins 
+
+```bash
+npm i -D @tailwindcss/forms@0.4.0
+```
+
+require it in tailwind.config
+
+restart server
+
+nice feature with disabled:
+
+```css
+   value={breed}
+    className="w-60 mb-5 block disabled:opacity-50"
+```
+
