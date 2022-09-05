@@ -451,3 +451,21 @@ change in index.html ->  `ClientApp.js`
  res.send(`${parts[0]}${renderToString(reactMarkup)}${parts[1]}`);
 ```
 
+
+
+If we hit url -> to non existing thing 
+
+`StaticRouter` allowed us pass context object that allow us to read afterwards -> how render wen 
+
+
+
+Stream is data type inside Node
+
+-> import `renderToNodeStream` 
+
+​	- it progressively give us piece as it renders it 
+
+1. send first part where css is
+2. start rendering Stream
+
+with http v2 we can send to users part by part 
